@@ -31,124 +31,140 @@ class _LoginPageState extends State<LoginPage> {
         ),
         decoration: const BoxDecoration(color: Colors.black),
         // decoration: const BoxDecoration(color: Colors.transparent),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Image.asset('assets/images/logo.png'),
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              'WELCOME',
+              style: welcome,
+            ),
+            FormBuilder(
+              key: _formKey,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'By signing in you are agreeing our',
+                    style: white14,
+                  ),
+                  Text(
+                    'Term and privacy policy',
+                    style: yelow14,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  _email(),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  _password(),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  _changePassword(
+                    press: () async {
+                      print('Change Password');
+                    },
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  _buttonLogin(),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  Text(
+                    'Login with touch ID',
+                    style: white14,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      print('Finger Login');
+                    },
+                    child: SvgPicture.asset(
+                      'assets/images/finger.svg',
+                      height: 70,
+                    ),
+                  ),
+                  Text(
+                    'or Connect With',
+                    style: white14,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  _outherLoginWith(),
+                ],
               ),
-              Image.asset('assets/images/logo.png'),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                'WELCOME',
-                style: welcome,
-              ),
-              FormBuilder(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 17,
-                    ),
-                    Text(
-                      'By signing in you are agreeing our',
-                      style: white14,
-                    ),
-                    Text(
-                      'Term and privacy policy',
-                      style: yelow14,
-                    ),
-                    const SizedBox(
-                      height: 21,
-                    ),
-                    _email(),
-                    const SizedBox(
-                      height: 17,
-                    ),
-                    _password(),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    _changePassword(
-                      press: () async {
-                        print('Change Password');
-                      },
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    _buttonLogin(),
-                    const SizedBox(
-                      height: 51,
-                    ),
-                    Text(
-                      'Login with touch ID',
-                      style: white14,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        print('Finger Login');
-                      },
-                      child: SvgPicture.asset('assets/images/finger.svg'),
-                    ),
-                    Text(
-                      'or Connect With',
-                      style: white14,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                            onTap: () async {
-                              print('Login Fb');
-                            },
-                            child: SvgPicture.asset('assets/images/fb.svg')),
-                        const SizedBox(
-                          width: 18,
-                        ),
-                        GestureDetector(
-                            onTap: () async {
-                              print('Login Instagram');
-                            },
-                            child: SvgPicture.asset('assets/images/ig.svg')),
-                        const SizedBox(
-                          width: 18,
-                        ),
-                        GestureDetector(
-                            onTap: () async {
-                              print('Login Pintress');
-                            },
-                            child:
-                                SvgPicture.asset('assets/images/pintres.svg')),
-                        const SizedBox(
-                          width: 18,
-                        ),
-                        GestureDetector(
-                            onTap: () async {
-                              print('Login linkedIn');
-                            },
-                            child:
-                                SvgPicture.asset('assets/images/linkedin.svg')),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  Row _outherLoginWith() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        GestureDetector(
+          onTap: () async {
+            print('Login Fb');
+          },
+          child: SvgPicture.asset(
+            'assets/images/fb.svg',
+            height: 40,
+          ),
+        ),
+        const SizedBox(
+          width: 18,
+        ),
+        GestureDetector(
+          onTap: () async {
+            print('Login Instagram');
+          },
+          child: SvgPicture.asset(
+            'assets/images/ig.svg',
+            height: 40,
+          ),
+        ),
+        const SizedBox(
+          width: 18,
+        ),
+        GestureDetector(
+          onTap: () async {
+            print('Login Pintress');
+          },
+          child: SvgPicture.asset(
+            'assets/images/pintres.svg',
+            height: 40,
+          ),
+        ),
+        const SizedBox(
+          width: 18,
+        ),
+        GestureDetector(
+          onTap: () async {
+            print('Login linkedIn');
+          },
+          child: SvgPicture.asset(
+            'assets/images/linkedin.svg',
+            height: 40,
+          ),
+        ),
+      ],
     );
   }
 
@@ -174,6 +190,9 @@ class _LoginPageState extends State<LoginPage> {
             'assets/images/mail.svg',
           ),
         ),
+        border: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: list)),
         errorBorder: OutlineInputBorder(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
             borderSide: BorderSide(color: list)),
@@ -205,6 +224,9 @@ class _LoginPageState extends State<LoginPage> {
           color: fontInputColor,
           fontSize: 16,
         ),
+        border: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: list)),
         errorBorder: OutlineInputBorder(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
             borderSide: BorderSide(color: list)),
@@ -224,17 +246,15 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         counterText: "",
-
-        // suffixIcon: IconButton(
-        //   icon: Icon(
-        //     isPasswordVisible
-        //         ? Icons.visibility
-        //         : Icons.visibility_off,
-        //   ),
-        //   onPressed: () => setState(() {
-        //     isPasswordVisible = !isPasswordVisible;
-        //   }),
-        // ),
+        suffixIcon: IconButton(
+          icon: Icon(
+            isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+            color: fontInputColor,
+          ),
+          onPressed: () => setState(() {
+            isPasswordVisible = !isPasswordVisible;
+          }),
+        ),
       ),
     );
   }
